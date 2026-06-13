@@ -572,8 +572,9 @@ export default function Index() {
                 style={{ textDecoration: "none", borderColor: "rgba(201,168,76,0.2)" }}>
                 <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: "rgba(0,119,255,0.12)" }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#0077FF">
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.069l-1.97 9.295c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.243 14.6l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.575 1.807z"/>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 6.5C3 5.12 4.12 4 5.5 4H18.5C19.88 4 21 5.12 21 6.5V14.5C21 15.88 19.88 17 18.5 17H14L10 20.5V17H5.5C4.12 17 3 15.88 3 14.5V6.5Z" fill="#0077FF"/>
+                    <path d="M8 9.5H16M8 12.5H13" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
                   </svg>
                 </div>
                 <div>
@@ -706,8 +707,9 @@ export default function Index() {
         </a>
         <a href="https://max.ru/+79037808734" target="_blank" rel="noopener noreferrer"
           className="contact-btn" style={{ background: "#0077FF" }} title="Max">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.069l-1.97 9.295c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.243 14.6l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.575 1.807z"/>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 6.5C3 5.12 4.12 4 5.5 4H18.5C19.88 4 21 5.12 21 6.5V14.5C21 15.88 19.88 17 18.5 17H14L10 20.5V17H5.5C4.12 17 3 15.88 3 14.5V6.5Z" fill="white"/>
+            <path d="M8 9.5H16M8 12.5H13" stroke="#0077FF" strokeWidth="1.5" strokeLinecap="round"/>
           </svg>
         </a>
       </div>
