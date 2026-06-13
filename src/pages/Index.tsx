@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const IMG = {
-  hero: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/711baf49-3d39-4e75-bc93-3f4575a77bfe.jpg",
+  hero: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/d9bd3c9f-76b9-427d-930b-1acc7e7be316.jpg",
   doctor: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/d7ce73ca-1388-4945-878b-f088a7f0e699.jpg",
   woman: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/1c7169e2-d946-4957-bebe-0e1928038e48.jpg",
   man: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/34b6b62b-b464-4bc4-984e-9c3052e5f042.jpg",
@@ -164,9 +164,12 @@ export default function Index() {
       {/* ── HERO ── */}
       <section id="hero" className="relative min-h-screen flex items-end overflow-hidden">
         <div className="absolute inset-0">
-          <img src={IMG.hero} alt="" className="w-full h-full object-cover" style={{ transform: "scale(1.05)" }} />
+          <img src={IMG.hero} alt="" className="w-full h-full object-cover" style={{ transform: "scale(1.05)", filter: "brightness(0.75) saturate(0.85)" }} />
           <div className="absolute inset-0" style={{
-            background: "linear-gradient(to top, rgba(8,16,10,0.97) 0%, rgba(8,16,10,0.5) 50%, rgba(8,16,10,0.15) 100%)"
+            background: "linear-gradient(105deg, rgba(5,12,7,0.92) 0%, rgba(5,12,7,0.75) 45%, rgba(5,12,7,0.25) 100%)"
+          }} />
+          <div className="absolute inset-0" style={{
+            background: "linear-gradient(to top, rgba(5,12,7,0.98) 0%, rgba(5,12,7,0.3) 35%, transparent 70%)"
           }} />
         </div>
 
@@ -202,7 +205,7 @@ export default function Index() {
                 marginBottom: "0.3em",
               }}>
                 Красота,<br />
-                <em style={{ color: "var(--brand-gold-light)", fontStyle: "italic" }}>которую видно</em>
+                <em style={{ color: "#f0d98a", fontStyle: "italic", textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}>которую видно</em>
               </h1>
             </div>
 
