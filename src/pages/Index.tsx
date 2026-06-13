@@ -7,58 +7,70 @@ const SKIN_IMAGE = "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-454
 
 const services = [
   {
-    icon: "Sparkles",
-    title: "Химические пилинги",
-    desc: "Поверхностные и срединные пилинги для обновления кожи, выравнивания тона и устранения пигментации.",
-    price: "от 3 500 ₽"
+    icon: "Smile",
+    title: "Чистка лица",
+    desc: "Ручная и комбинированная чистка — глубокое очищение пор, устранение воспалений и выравнивание рельефа кожи.",
+    price: "по запросу"
   },
   {
     icon: "Syringe",
-    title: "Контурная пластика",
-    desc: "Инъекции филлеров для коррекции носогубных складок, губ, скул и овала лица.",
-    price: "от 8 000 ₽"
-  },
-  {
-    icon: "Zap",
-    title: "Ботулинотерапия",
-    desc: "Устранение мимических морщин в области лба, переносицы и вокруг глаз.",
-    price: "от 6 000 ₽"
-  },
-  {
-    icon: "Droplets",
-    title: "Капельница «Золушка»",
-    desc: "Интенсивное внутривенное питание кожи с эффектом сияния и омоложения.",
-    price: "от 5 000 ₽"
-  },
-  {
-    icon: "Star",
-    title: "Капельница «Монако»",
-    desc: "Премиальный коктейль для восстановления, детоксикации и роскошного блеска кожи.",
-    price: "от 7 500 ₽"
+    title: "Мезотерапия",
+    desc: "Инъекционное введение витаминных коктейлей для лица, тела и волосистой части головы — питание, увлажнение, лифтинг.",
+    price: "по запросу"
   },
   {
     icon: "Heart",
     title: "Биоревитализация",
-    desc: "Введение гиалуроновой кислоты для глубокого увлажнения и восстановления упругости.",
-    price: "от 9 000 ₽"
+    desc: "Введение гиалуроновой кислоты для глубокого увлажнения, восстановления упругости и сияния кожи.",
+    price: "по запросу"
   },
   {
-    icon: "Sun",
-    title: "Мезотерапия",
-    desc: "Микроинъекции витаминных коктейлей для питания, укрепления и лифтинга кожи.",
-    price: "от 4 500 ₽"
+    icon: "Zap",
+    title: "Ботулинотерапия",
+    desc: "Коррекция мимических морщин в области лба, переносицы и вокруг глаз. Натуральный и свежий результат.",
+    price: "по запросу"
   },
   {
-    icon: "Shield",
-    title: "Плазмолифтинг",
-    desc: "Омоложение собственной плазмой крови для стимуляции регенерации и подтяжки тканей.",
-    price: "от 6 500 ₽"
+    icon: "Droplets",
+    title: "Капельницы красоты",
+    desc: "«Детокс», «Золушка», «Витаминный заряд бодрости», восстановление после праздников — подберём под вашу задачу.",
+    price: "по запросу"
   },
   {
-    icon: "Gem",
-    title: "Нитевой лифтинг",
-    desc: "Малоинвазивная подтяжка контуров лица и тела с длительным эффектом.",
-    price: "от 15 000 ₽"
+    icon: "Sparkles",
+    title: "Химические пилинги",
+    desc: "Пилинги подбираются строго по типу кожи — обновление, выравнивание тона, устранение пигментации и акне.",
+    price: "по запросу"
+  },
+  {
+    icon: "Scissors",
+    title: "Эпиляция на лице",
+    desc: "Деликатное удаление нежелательных волосков в области лица. Бережно и аккуратно.",
+    price: "по запросу"
+  },
+  {
+    icon: "Layers",
+    title: "Альгинатные маски",
+    desc: "Профессиональные маски, подобранные по типу кожи — питание, успокоение, лифтинг и мгновенное сияние.",
+    price: "по запросу"
+  },
+  {
+    icon: "Activity",
+    title: "Аппаратная коррекция фигуры",
+    desc: "Современные методики для моделирования контуров тела, уменьшения объёмов и улучшения качества кожи.",
+    price: "по запросу"
+  },
+  {
+    icon: "Star",
+    title: "Фарфоровая куколка",
+    desc: "Комплексная процедура для достижения фарфорово-гладкой, сияющей и безупречной кожи лица.",
+    price: "по запросу"
+  },
+  {
+    icon: "ShoppingBag",
+    title: "Подбор домашнего ухода",
+    desc: "Помогу выбрать профессиональную косметику для домашнего использования — с учётом типа кожи и ваших задач.",
+    price: "бесплатно"
   },
 ];
 
@@ -90,7 +102,7 @@ const reviews = [
   {
     name: "Наталья Д.",
     date: "ноябрь 2024",
-    text: "Прошла курс биоревитализации. Кожа стала упругой, морщинки разгладились. Доктор — настоящий профессионал с золотыми руками.",
+    text: "Прошла курс биоревитализации. Кожа стала упругой, морщинки разгладились. Екатерина — настоящий профессионал с золотыми руками.",
     rating: 5
   },
   {
@@ -141,9 +153,9 @@ export default function Index() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="cursor-pointer" onClick={() => scrollTo("hero")}>
-            <div className="font-serif text-sm text-[var(--brand-gold)] tracking-[0.15em] uppercase">Центр эстетической медицины</div>
+            <div className="font-serif text-sm text-[var(--brand-gold)] tracking-[0.15em] uppercase">Центр косметологии</div>
             <div className="text-xl text-white tracking-wide" style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 500 }}>
-              Доктора Давыдовой
+              Екатерины Давыдовой
             </div>
           </div>
 
@@ -161,12 +173,12 @@ export default function Index() {
             ))}
           </div>
 
-          <button
-            className="hidden md:flex btn-gold px-6 py-2.5 text-sm rounded-sm cursor-pointer"
-            onClick={() => scrollTo("contacts")}
-          >
-            Записаться
-          </button>
+          <a href="tel:+79037808734"
+            className="hidden md:flex btn-gold px-6 py-2.5 text-sm rounded-sm cursor-pointer items-center gap-2"
+            style={{ textDecoration: "none" }}>
+            <Icon name="Phone" size={14} />
+            +7 (903) 780-87-34
+          </a>
 
           <button
             className="md:hidden text-white p-2 bg-transparent border-none cursor-pointer"
@@ -214,7 +226,7 @@ export default function Index() {
           <div className="animate-fade-in-up opacity-0" style={{ animationFillMode: "forwards" }}>
             <p className="text-[var(--brand-gold)] tracking-[0.3em] text-xs uppercase mb-6 font-light"
               style={{ fontFamily: "Golos Text, sans-serif" }}>
-              Павловский Посад · Эстетическая медицина
+              Павловский Посад · cosmetology & aesthetic
             </p>
           </div>
 
@@ -224,7 +236,7 @@ export default function Index() {
               fontSize: "clamp(2.5rem, 7vw, 5rem)",
               fontWeight: 300
             }}>
-              Центр эстетической
+              Центр косметологии
             </h1>
             <h1 className="mb-8 leading-tight" style={{
               fontFamily: "Cormorant Garamond, serif",
@@ -232,15 +244,15 @@ export default function Index() {
               fontWeight: 300,
               color: "var(--brand-gold-light)"
             }}>
-              медицины доктора Давыдовой
+              Екатерины Давыдовой
             </h1>
           </div>
 
           <div className="animate-fade-in-up opacity-0 delay-400" style={{ animationFillMode: "forwards" }}>
             <p className="text-white/75 text-lg mb-10 leading-relaxed max-w-2xl mx-auto"
               style={{ fontFamily: "Golos Text, sans-serif", fontWeight: 300 }}>
-              Более 20 лет клинического опыта. Индивидуальный подход, современные методики
-              и искреннее внимание к каждому клиенту.
+              Более 20 лет опыта в сфере здоровья и красоты. Индивидуальный подход,
+              современные методики и искреннее внимание к каждому клиенту.
             </p>
           </div>
 
@@ -341,7 +353,7 @@ export default function Index() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-full h-full border border-[var(--brand-gold)] opacity-20 rounded-sm" />
-              <img src={DOCTOR_IMAGE} alt="Доктор Давыдова" className="w-full rounded-sm relative z-10 object-cover"
+              <img src={DOCTOR_IMAGE} alt="Екатерина Давыдова" className="w-full rounded-sm relative z-10 object-cover"
                 style={{ maxHeight: "600px" }} />
               <div className="absolute bottom-6 right-6 z-20 text-white text-center px-6 py-4 rounded-sm"
                 style={{ background: "rgba(26,46,34,0.92)", backdropFilter: "blur(8px)" }}>
@@ -359,20 +371,20 @@ export default function Index() {
               </p>
               <h2 className="text-4xl md:text-5xl mb-6 text-[var(--brand-dark)] leading-tight"
                 style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 400 }}>
-                Доктор Давыдова
+                Екатерина Давыдова
               </h2>
               <div className="section-divider mb-8" style={{ margin: "0 0 2rem 0" }} />
 
               <p className="text-gray-600 leading-relaxed mb-6"
                 style={{ fontFamily: "Golos Text, sans-serif", fontWeight: 300 }}>
-                Более 20 лет работы в сфере медицины дали доктору Давыдовой уникальный клинический опыт
-                и глубокое понимание физиологии человека. Это позволяет применять эстетические процедуры
-                с максимальной безопасностью и точностью.
+                Более 20 лет Екатерина работает в сфере здоровья и красоты. За эти годы она накопила
+                глубокие знания физиологии кожи и человеческого организма, которые лежат в основе
+                каждой процедуры. Это даёт уверенность — вы в надёжных руках.
               </p>
               <p className="text-gray-600 leading-relaxed mb-8"
                 style={{ fontFamily: "Golos Text, sans-serif", fontWeight: 300 }}>
-                Центр эстетической медицины в Павловском Посаде — это пространство, где каждый клиент
-                получает персональный план процедур, честную консультацию и результат, который говорит сам за себя.
+                Центр косметологии в Павловском Посаде — камерное пространство, где каждый клиент
+                получает персональный подход, честную консультацию и результат, который говорит сам за себя.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-10">
@@ -396,7 +408,7 @@ export default function Index() {
 
               <button className="btn-gold px-10 py-4 text-sm rounded-sm tracking-widest uppercase cursor-pointer"
                 onClick={() => scrollTo("contacts")}>
-                Записаться к доктору
+                Записаться к Екатерине
               </button>
             </div>
           </div>
@@ -500,7 +512,7 @@ export default function Index() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-4">
-              <a href="tel:+79031234567"
+              <a href="tel:+79037808734"
                 className="flex items-center gap-5 p-5 rounded-sm border transition-all group"
                 style={{ textDecoration: "none", borderColor: "rgba(201,168,76,0.2)" }}>
                 <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
@@ -511,58 +523,64 @@ export default function Index() {
                   <div className="text-xs tracking-wider text-gray-400 uppercase mb-0.5"
                     style={{ fontFamily: "Golos Text, sans-serif" }}>Телефон</div>
                   <div className="text-[var(--brand-dark)] font-medium"
-                    style={{ fontFamily: "Golos Text, sans-serif" }}>+7 (903) 123-45-67</div>
+                    style={{ fontFamily: "Golos Text, sans-serif" }}>+7 (903) 780-87-34</div>
                   <div className="text-gray-400 text-xs mt-0.5"
                     style={{ fontFamily: "Golos Text, sans-serif" }}>Пн–Сб: 9:00–20:00</div>
                 </div>
               </a>
 
-              <a href="https://t.me/davydova_estetika" target="_blank" rel="noopener noreferrer"
+              <a href="https://t.me/+79037808734" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-5 p-5 rounded-sm border transition-all"
                 style={{ textDecoration: "none", borderColor: "rgba(201,168,76,0.2)" }}>
                 <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(0,136,204,0.1)" }}>
-                  <span className="text-xl">✈️</span>
+                  style={{ background: "rgba(34,158,217,0.12)" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#229ED9">
+                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                  </svg>
                 </div>
                 <div>
                   <div className="text-xs tracking-wider text-gray-400 uppercase mb-0.5"
                     style={{ fontFamily: "Golos Text, sans-serif" }}>Telegram</div>
                   <div className="text-[var(--brand-dark)] font-medium"
-                    style={{ fontFamily: "Golos Text, sans-serif" }}>@davydova_estetika</div>
+                    style={{ fontFamily: "Golos Text, sans-serif" }}>+7 (903) 780-87-34</div>
                   <div className="text-gray-400 text-xs mt-0.5"
                     style={{ fontFamily: "Golos Text, sans-serif" }}>Ответим быстро</div>
                 </div>
               </a>
 
-              <a href="https://wa.me/79031234567" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/79037808734" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-5 p-5 rounded-sm border transition-all"
                 style={{ textDecoration: "none", borderColor: "rgba(201,168,76,0.2)" }}>
                 <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(37,211,102,0.1)" }}>
-                  <span className="text-xl">💬</span>
+                  style={{ background: "rgba(37,211,102,0.12)" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+                  </svg>
                 </div>
                 <div>
                   <div className="text-xs tracking-wider text-gray-400 uppercase mb-0.5"
                     style={{ fontFamily: "Golos Text, sans-serif" }}>WhatsApp</div>
                   <div className="text-[var(--brand-dark)] font-medium"
-                    style={{ fontFamily: "Golos Text, sans-serif" }}>+7 (903) 123-45-67</div>
+                    style={{ fontFamily: "Golos Text, sans-serif" }}>+7 (903) 780-87-34</div>
                   <div className="text-gray-400 text-xs mt-0.5"
                     style={{ fontFamily: "Golos Text, sans-serif" }}>Напишите удобным способом</div>
                 </div>
               </a>
 
-              <a href="https://max.ru/davydova_estetika" target="_blank" rel="noopener noreferrer"
+              <a href="https://max.ru/+79037808734" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-5 p-5 rounded-sm border transition-all"
                 style={{ textDecoration: "none", borderColor: "rgba(201,168,76,0.2)" }}>
                 <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(0,119,255,0.1)" }}>
-                  <span className="text-xl">💙</span>
+                  style={{ background: "rgba(0,119,255,0.12)" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#0077FF">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.069l-1.97 9.295c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.243 14.6l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.575 1.807z"/>
+                  </svg>
                 </div>
                 <div>
                   <div className="text-xs tracking-wider text-gray-400 uppercase mb-0.5"
                     style={{ fontFamily: "Golos Text, sans-serif" }}>Макс (Max)</div>
                   <div className="text-[var(--brand-dark)] font-medium"
-                    style={{ fontFamily: "Golos Text, sans-serif" }}>davydova_estetika</div>
+                    style={{ fontFamily: "Golos Text, sans-serif" }}>+7 (903) 780-87-34</div>
                   <div className="text-gray-400 text-xs mt-0.5"
                     style={{ fontFamily: "Golos Text, sans-serif" }}>ВКонтакте Мессенджер</div>
                 </div>
@@ -654,11 +672,11 @@ export default function Index() {
         <div className="max-w-7xl mx-auto">
           <div className="text-[var(--brand-gold)] text-xs tracking-[0.3em] uppercase mb-2"
             style={{ fontFamily: "Golos Text, sans-serif" }}>
-            Центр эстетической медицины
+            Центр косметологии
           </div>
           <div className="text-white text-xl mb-4"
             style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 400 }}>
-            Доктора Давыдовой
+            Екатерины Давыдовой
           </div>
           <div className="text-white/30 text-xs" style={{ fontFamily: "Golos Text, sans-serif" }}>
             © 2025 · Павловский Посад · Все права защищены
@@ -668,21 +686,29 @@ export default function Index() {
 
       {/* FLOATING CONTACTS */}
       <div className="floating-contact">
-        <a href="tel:+79031234567" className="contact-btn" style={{ background: "var(--brand-green)" }}
+        <a href="tel:+79037808734" className="contact-btn" style={{ background: "#2d4a35" }}
           title="Позвонить">
-          📞
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+          </svg>
         </a>
-        <a href="https://t.me/davydova_estetika" target="_blank" rel="noopener noreferrer"
+        <a href="https://t.me/+79037808734" target="_blank" rel="noopener noreferrer"
           className="contact-btn" style={{ background: "#229ED9" }} title="Telegram">
-          ✈️
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          </svg>
         </a>
-        <a href="https://wa.me/79031234567" target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/79037808734" target="_blank" rel="noopener noreferrer"
           className="contact-btn" style={{ background: "#25D366" }} title="WhatsApp">
-          💬
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+          </svg>
         </a>
-        <a href="https://max.ru/davydova_estetika" target="_blank" rel="noopener noreferrer"
+        <a href="https://max.ru/+79037808734" target="_blank" rel="noopener noreferrer"
           className="contact-btn" style={{ background: "#0077FF" }} title="Max">
-          💙
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.069l-1.97 9.295c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L6.243 14.6l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.575 1.807z"/>
+          </svg>
         </a>
       </div>
 
