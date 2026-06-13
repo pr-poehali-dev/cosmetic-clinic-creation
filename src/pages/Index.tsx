@@ -168,13 +168,6 @@ export default function Index() {
             ))}
           </div>
 
-          <a href="tel:+79037808734"
-            className="hidden md:flex btn-gold px-6 py-2.5 text-sm rounded-sm cursor-pointer items-center gap-2"
-            style={{ textDecoration: "none" }}>
-            <Icon name="Phone" size={14} />
-            +7 (903) 780-87-34
-          </a>
-
           <button
             className="md:hidden text-white p-2 bg-transparent border-none cursor-pointer"
             onClick={() => setMenuOpen(!menuOpen)}
