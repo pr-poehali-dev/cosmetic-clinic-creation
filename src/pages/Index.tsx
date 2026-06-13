@@ -78,10 +78,54 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
+function CountUp({ end, suffix = "", duration = 1800 }: { end: number; suffix?: string; duration?: number }) {
+  const { ref, visible } = useInView(0.4);
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    if (!visible) return;
+    let start: number | null = null;
+    let raf: number;
+    const step = (ts: number) => {
+      if (start === null) start = ts;
+      const p = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setVal(Math.floor(eased * end));
+      if (p < 1) raf = requestAnimationFrame(step);
+      else setVal(end);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [visible, end, duration]);
+  return <span ref={ref as React.RefObject<HTMLSpanElement>}>{val}{suffix}</span>;
+}
+
+const steps = [
+  { n: "01", icon: "MessageSquare", title: "Знакомство", desc: "Вы пишете в мессенджер — я отвечаю лично, обсуждаем задачи и подбираем удобное время." },
+  { n: "02", icon: "Stethoscope", title: "Диагностика", desc: "На приёме оцениваю состояние кожи и составляю честный план: только то, что действительно нужно." },
+  { n: "03", icon: "Sparkles", title: "Процедура", desc: "Провожу процедуру бережно и безопасно, проговаривая каждый шаг. Вам комфортно и спокойно." },
+  { n: "04", icon: "HeartHandshake", title: "Сопровождение", desc: "Даю рекомендации по домашнему уходу и остаюсь на связи между визитами." },
+];
+
+const credentials = [
+  { icon: "GraduationCap", title: "Медицинское образование", desc: "Профильная подготовка и более 20 лет практики в сфере здоровья и эстетики." },
+  { icon: "Award", title: "Сертификаты по процедурам", desc: "Регулярное обучение современным методикам инъекций, пилингов и аппаратной косметологии." },
+  { icon: "ShieldCheck", title: "Сертифицированные препараты", desc: "Работаю только с оригинальными, сертифицированными материалами проверенных брендов." },
+  { icon: "BadgeCheck", title: "Стерильность и безопасность", desc: "Одноразовые инструменты, строгие протоколы антисептики на каждом этапе." },
+];
+
+const faq = [
+  { q: "Это больно?", a: "Большинство процедур комфортны. При инъекциях используется анестезирующий крем, а техника отработана до мелочей — дискомфорт минимален." },
+  { q: "Когда будет виден результат?", a: "Зависит от процедуры: эффект чистки и капельниц заметен сразу, инъекционные методики раскрываются в течение 1–2 недель." },
+  { q: "Есть ли противопоказания?", a: "Да, у любой процедуры есть ограничения. Перед началом я обязательно провожу диагностику и собираю анамнез — безопасность превыше всего." },
+  { q: "Как подготовиться к визиту?", a: "Чаще всего особой подготовки не требуется. Все нюансы я расскажу лично при записи, исходя из выбранной процедуры." },
+  { q: "Подходит ли это мужчинам?", a: "Конечно. Чистка, мезотерапия, капельницы и коррекция морщин одинаково востребованы и у мужчин — без лишнего пафоса, с результатом." },
+];
+
 export default function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeService, setActiveService] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60);
@@ -97,8 +141,10 @@ export default function Index() {
   const navLinks = [
     { label: "Услуги", id: "services" },
     { label: "О нас", id: "about" },
+    { label: "Этапы", id: "steps" },
     { label: "Портфолио", id: "portfolio" },
     { label: "Отзывы", id: "reviews" },
+    { label: "Вопросы", id: "faq" },
     { label: "Контакты", id: "contacts" },
   ];
 
@@ -114,7 +160,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
           <div className="w-8" />
 
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((item) => (
               <button key={item.id} onClick={() => scrollTo(item.id)} className="nav-link bg-transparent border-none cursor-pointer">
                 {item.label}
@@ -238,13 +284,15 @@ export default function Index() {
             <div className="animate-fade-in-up opacity-0 delay-500 flex items-center gap-10 mt-14 pt-10"
               style={{ animationFillMode: "forwards", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
               {[
-                { n: "20+", t: "лет опыта" },
-                { n: "1200+", t: "клиентов" },
-                { n: "11", t: "процедур" },
-                { n: "5★", t: "оценка" },
+                { end: 20, suffix: "+", t: "лет опыта" },
+                { end: 1200, suffix: "+", t: "клиентов" },
+                { end: 11, suffix: "", t: "процедур" },
+                { end: 5, suffix: "★", t: "оценка" },
               ].map(s => (
                 <div key={s.t}>
-                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2rem", fontWeight: 400, color: "var(--brand-gold)" }}>{s.n}</div>
+                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2rem", fontWeight: 400, color: "var(--brand-gold)" }}>
+                    <CountUp end={s.end} suffix={s.suffix} />
+                  </div>
                   <div style={{ fontFamily: "Golos Text, sans-serif", fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: 2 }}>{s.t}</div>
                 </div>
               ))}
@@ -364,12 +412,12 @@ export default function Index() {
 
                 {/* Floating stat */}
                 <div className="absolute top-8 -left-6 px-6 py-5 rounded-sm shadow-2xl" style={{ background: "rgba(201,168,76,0.95)" }}>
-                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 400, color: "var(--brand-dark)", lineHeight: 1 }}>20+</div>
+                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 400, color: "var(--brand-dark)", lineHeight: 1 }}><CountUp end={20} suffix="+" /></div>
                   <div style={{ fontFamily: "Golos Text, sans-serif", fontSize: "0.65rem", color: "var(--brand-dark)", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 4, opacity: 0.8 }}>лет опыта</div>
                 </div>
 
                 <div className="absolute bottom-8 -right-0 px-6 py-5 rounded-sm shadow-2xl" style={{ background: "rgba(10,18,12,0.95)", backdropFilter: "blur(12px)", border: "1px solid rgba(201,168,76,0.2)" }}>
-                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 400, color: "var(--brand-gold)", lineHeight: 1 }}>1200+</div>
+                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.2rem", fontWeight: 400, color: "var(--brand-gold)", lineHeight: 1 }}><CountUp end={1200} suffix="+" /></div>
                   <div style={{ fontFamily: "Golos Text, sans-serif", fontSize: "0.65rem", color: "rgba(255,255,255,0.5)", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 4 }}>клиентов</div>
                 </div>
               </div>
@@ -445,6 +493,83 @@ export default function Index() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CREDENTIALS ── */}
+      <section id="credentials" className="py-28 px-6" style={{ background: "var(--brand-cream)" }}>
+        <div className="max-w-7xl mx-auto">
+          <FadeIn className="text-center mb-20">
+            <p style={{ fontFamily: "Golos Text, sans-serif", fontSize: "0.7rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "var(--brand-gold)", marginBottom: 16 }}>
+              Почему мне доверяют
+            </p>
+            <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.5rem,5vw,4rem)", fontWeight: 400, color: "var(--brand-dark)", marginBottom: 20 }}>
+              Образование и гарантии
+            </h2>
+            <div className="section-divider" />
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {credentials.map((c, i) => (
+              <FadeIn key={c.title} delay={i * 0.08}>
+                <div className="cred-card h-full rounded-sm text-center" style={{ padding: "40px 28px" }}>
+                  <div className="mx-auto mb-6 w-16 h-16 rounded-full flex items-center justify-center"
+                    style={{ background: "linear-gradient(135deg, rgba(201,168,76,0.18), rgba(201,168,76,0.05))", border: "1px solid rgba(201,168,76,0.25)" }}>
+                    <Icon name={c.icon} fallback="Award" size={26} style={{ color: "var(--brand-gold)" }} />
+                  </div>
+                  <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.35rem", fontWeight: 500, color: "var(--brand-dark)", marginBottom: 12 }}>
+                    {c.title}
+                  </h3>
+                  <p style={{ fontFamily: "Golos Text, sans-serif", fontSize: "0.85rem", color: "#6b7280", lineHeight: 1.7, fontWeight: 300 }}>
+                    {c.desc}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── STEPS / TIMELINE ── */}
+      <section id="steps" className="relative py-28 px-6 overflow-hidden" style={{ background: "#0a120c" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: "radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 55%)"
+        }} />
+        <div className="max-w-7xl mx-auto relative z-10">
+          <FadeIn className="text-center mb-20">
+            <p style={{ fontFamily: "Golos Text, sans-serif", fontSize: "0.7rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "var(--brand-gold)", marginBottom: 16 }}>
+              Как мы работаем
+            </p>
+            <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.5rem,5vw,4rem)", fontWeight: 400, color: "white", marginBottom: 20 }}>
+              Ваш путь к результату
+            </h2>
+            <div className="section-divider" />
+          </FadeIn>
+
+          <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="hidden md:block absolute top-8 left-0 right-0" style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.3) 15%, rgba(201,168,76,0.3) 85%, transparent)" }} />
+            {steps.map((s, i) => (
+              <FadeIn key={s.n} delay={i * 0.12}>
+                <div className="relative text-center md:text-left">
+                  <div className="flex md:block items-center gap-4 mb-5 justify-center md:justify-start">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 relative z-10"
+                      style={{ background: "var(--brand-dark)", border: "1px solid rgba(201,168,76,0.4)" }}>
+                      <Icon name={s.icon} fallback="Sparkles" size={24} style={{ color: "var(--brand-gold)" }} />
+                    </div>
+                    <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.8rem", fontWeight: 300, color: "rgba(201,168,76,0.25)", lineHeight: 1 }} className="md:block md:mt-4">
+                      {s.n}
+                    </span>
+                  </div>
+                  <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.5rem", fontWeight: 500, color: "white", marginBottom: 10 }}>
+                    {s.title}
+                  </h3>
+                  <p style={{ fontFamily: "Golos Text, sans-serif", fontSize: "0.88rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.7, fontWeight: 300 }}>
+                    {s.desc}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
@@ -539,6 +664,50 @@ export default function Index() {
               </FadeIn>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section id="faq" className="py-28 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <FadeIn className="text-center mb-16">
+            <p style={{ fontFamily: "Golos Text, sans-serif", fontSize: "0.7rem", letterSpacing: "0.35em", textTransform: "uppercase", color: "var(--brand-gold)", marginBottom: 16 }}>
+              Частые вопросы
+            </p>
+            <h2 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "clamp(2.5rem,5vw,4rem)", fontWeight: 400, color: "var(--brand-dark)", marginBottom: 20 }}>
+              Отвечаю честно
+            </h2>
+            <div className="section-divider" />
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            <div className="flex flex-col gap-3">
+              {faq.map((item, i) => {
+                const open = openFaq === i;
+                return (
+                  <div key={i} className="faq-item rounded-sm" style={{ border: "1px solid rgba(201,168,76,0.2)", overflow: "hidden", background: open ? "var(--brand-cream)" : "white" }}>
+                    <button
+                      onClick={() => setOpenFaq(open ? null : i)}
+                      className="w-full flex items-center justify-between gap-4 bg-transparent border-none cursor-pointer text-left"
+                      style={{ padding: "22px 26px" }}>
+                      <span style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.3rem", fontWeight: 500, color: "var(--brand-dark)" }}>
+                        {item.q}
+                      </span>
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
+                        style={{ background: open ? "var(--brand-gold)" : "rgba(201,168,76,0.12)", transition: "all 0.3s ease" }}>
+                        <Icon name={open ? "Minus" : "Plus"} size={16} style={{ color: open ? "var(--brand-dark)" : "var(--brand-gold)" }} />
+                      </span>
+                    </button>
+                    <div style={{ maxHeight: open ? 240 : 0, opacity: open ? 1 : 0, transition: "max-height 0.4s ease, opacity 0.4s ease", overflow: "hidden" }}>
+                      <p style={{ fontFamily: "Golos Text, sans-serif", fontSize: "0.92rem", color: "#6b7280", lineHeight: 1.8, fontWeight: 300, padding: "0 26px 24px" }}>
+                        {item.a}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
