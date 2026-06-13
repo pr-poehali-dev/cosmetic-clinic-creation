@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const IMG = {
-  hero: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/e37f4ef9-2de2-4dbe-91c2-9fe43901f12b.jpg",
-  doctor: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/ff5a470c-842a-414f-b845-278f04209c85.jpg",
-  woman: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/41b05868-d488-4cba-9b28-6d902f38b0c2.jpg",
-  man: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/06937b4c-dc83-4c61-86be-9fba74d63261.PNG",
-  kate2: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/692876a9-7293-4b95-b1ff-729f6d084b74.jpg",
+  hero: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/d9bd3c9f-76b9-427d-930b-1acc7e7be316.jpg",
+  doctor: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/5b551a60-82f7-4e80-9bfb-52e39b48212c.jpg",
+  woman: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/377b07ac-73f1-4fcc-acea-199ead9128db.jpg",
+  man: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/939b7fb6-f654-49a0-91ef-2770a7912f9c.jpg",
+  kate2: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/939b7fb6-f654-49a0-91ef-2770a7912f9c.jpg",
   p1: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/182b8fd7-8e24-4b4a-beac-cc018d2bfe2d.jpg",
   p2: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/4ba0f812-3b6b-430d-ba41-175e5da3f6c2.jpg",
   p3: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/6c13264b-ff06-4dbb-bc5d-36b6f6ce120c.jpg",
