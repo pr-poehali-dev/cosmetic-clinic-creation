@@ -572,10 +572,8 @@ export default function Index() {
                 style={{ textDecoration: "none", borderColor: "rgba(201,168,76,0.2)" }}>
                 <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: "rgba(0,119,255,0.12)" }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M3 6.5C3 5.12 4.12 4 5.5 4H18.5C19.88 4 21 5.12 21 6.5V14.5C21 15.88 19.88 17 18.5 17H14L10 20.5V17H5.5C4.12 17 3 15.88 3 14.5V6.5Z" fill="#0077FF"/>
-                    <path d="M8 9.5H16M8 12.5H13" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                  </svg>
+                  <img src="https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/20f5bc99-99d1-414c-85bf-145e9d767e6d.jpg"
+                    alt="Max" style={{ width: 28, height: 28, borderRadius: "6px" }} />
                 </div>
                 <div>
                   <div className="text-xs tracking-wider text-gray-400 uppercase mb-0.5"
@@ -706,11 +704,9 @@ export default function Index() {
           </svg>
         </a>
         <a href="https://max.ru/+79037808734" target="_blank" rel="noopener noreferrer"
-          className="contact-btn" style={{ background: "#0077FF" }} title="Max">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M3 6.5C3 5.12 4.12 4 5.5 4H18.5C19.88 4 21 5.12 21 6.5V14.5C21 15.88 19.88 17 18.5 17H14L10 20.5V17H5.5C4.12 17 3 15.88 3 14.5V6.5Z" fill="white"/>
-            <path d="M8 9.5H16M8 12.5H13" stroke="#0077FF" strokeWidth="1.5" strokeLinecap="round"/>
-          </svg>
+          className="contact-btn" style={{ background: "none", padding: 0, boxShadow: "0 4px 20px rgba(0,0,0,0.2)" }} title="Max">
+          <img src="https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/20f5bc99-99d1-414c-85bf-145e9d767e6d.jpg"
+            alt="Max" style={{ width: 52, height: 52, borderRadius: "50%", display: "block" }} />
         </a>
       </div>
 
