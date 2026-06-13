@@ -153,9 +153,8 @@ export default function Index() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="cursor-pointer" onClick={() => scrollTo("hero")}>
-            <div className="font-serif text-sm text-[var(--brand-gold)] tracking-[0.15em] uppercase">Центр косметологии</div>
             <div className="text-xl text-white tracking-wide" style={{ fontFamily: "Cormorant Garamond, serif", fontWeight: 500 }}>
-              Екатерины Давыдовой
+              Екатерина Давыдова
             </div>
           </div>
 
