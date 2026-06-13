@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const IMG = {
-  hero: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/d9bd3c9f-76b9-427d-930b-1acc7e7be316.jpg",
-  doctor: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/d7ce73ca-1388-4945-878b-f088a7f0e699.jpg",
-  woman: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/1c7169e2-d946-4957-bebe-0e1928038e48.jpg",
-  man: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/34b6b62b-b464-4bc4-984e-9c3052e5f042.jpg",
+  hero: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/e37f4ef9-2de2-4dbe-91c2-9fe43901f12b.jpg",
+  doctor: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/ff5a470c-842a-414f-b845-278f04209c85.jpg",
+  woman: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/41b05868-d488-4cba-9b28-6d902f38b0c2.jpg",
+  man: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/06937b4c-dc83-4c61-86be-9fba74d63261.PNG",
+  kate2: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/bucket/692876a9-7293-4b95-b1ff-729f6d084b74.jpg",
   p1: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/182b8fd7-8e24-4b4a-beac-cc018d2bfe2d.jpg",
   p2: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/4ba0f812-3b6b-430d-ba41-175e5da3f6c2.jpg",
   p3: "https://cdn.poehali.dev/projects/4a1b1793-1bde-4476-a16b-45471d2a62ec/files/6c13264b-ff06-4dbb-bc5d-36b6f6ce120c.jpg",
@@ -175,11 +176,11 @@ export default function Index() {
 
         {/* Floating portraits */}
         <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-10">
-          <div className="rounded-sm overflow-hidden shadow-2xl" style={{ width: 180, height: 220, border: "1px solid rgba(201,168,76,0.2)" }}>
-            <img src={IMG.woman} alt="" className="w-full h-full object-cover" />
+          <div className="rounded-sm overflow-hidden shadow-2xl" style={{ width: 180, height: 240, border: "1px solid rgba(201,168,76,0.3)" }}>
+            <img src={IMG.doctor} alt="Екатерина Давыдова" className="w-full h-full object-cover object-top" />
           </div>
-          <div className="rounded-sm overflow-hidden shadow-2xl" style={{ width: 180, height: 220, border: "1px solid rgba(201,168,76,0.2)" }}>
-            <img src={IMG.man} alt="" className="w-full h-full object-cover" />
+          <div className="rounded-sm overflow-hidden shadow-2xl" style={{ width: 180, height: 240, border: "1px solid rgba(201,168,76,0.3)" }}>
+            <img src={IMG.kate2} alt="Екатерина Давыдова" className="w-full h-full object-cover object-top" />
           </div>
         </div>
 
@@ -356,7 +357,7 @@ export default function Index() {
             <FadeIn>
               <div className="relative">
                 <div className="rounded-sm overflow-hidden" style={{ border: "1px solid rgba(201,168,76,0.15)" }}>
-                  <img src={IMG.doctor} alt="Екатерина Давыдова" className="w-full object-cover" style={{ maxHeight: 620 }} />
+                  <img src={IMG.woman} alt="Екатерина Давыдова" className="w-full object-cover object-top" style={{ maxHeight: 620 }} />
                 </div>
                 {/* Gold frame accent */}
                 <div className="absolute -bottom-5 -right-5 w-2/3 h-2/3 rounded-sm" style={{ border: "1px solid rgba(201,168,76,0.2)", zIndex: -1 }} />
@@ -421,8 +422,8 @@ export default function Index() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             <div className="flex items-center gap-8 md:border-r md:border-[rgba(0,0,0,0.1)] md:pr-16 mb-10 md:mb-0">
-              <img src={IMG.woman} alt="Для женщин" className="rounded-sm object-cover flex-shrink-0"
-                style={{ width: 90, height: 110, filter: "saturate(0.9)" }} />
+              <img src={IMG.woman} alt="Екатерина Давыдова" className="rounded-sm object-cover object-top flex-shrink-0"
+                style={{ width: 90, height: 110 }} />
               <div>
                 <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2rem", fontWeight: 400, color: "var(--brand-dark)", marginBottom: 8 }}>
                   Для женщин
@@ -433,8 +434,8 @@ export default function Index() {
               </div>
             </div>
             <div className="flex items-center gap-8 md:pl-16">
-              <img src={IMG.man} alt="Для мужчин" className="rounded-sm object-cover flex-shrink-0"
-                style={{ width: 90, height: 110, filter: "saturate(0.9)" }} />
+              <img src={IMG.doctor} alt="Екатерина Давыдова" className="rounded-sm object-cover object-top flex-shrink-0"
+                style={{ width: 90, height: 110 }} />
               <div>
                 <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2rem", fontWeight: 400, color: "var(--brand-dark)", marginBottom: 8 }}>
                   Для мужчин
